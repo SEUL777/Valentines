@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sof</title>
+
+    <style>
+        /* ===================== PASOS ===================== */
+        .paso {
+            display: none;
+            text-align: center;
+        }
+        .paso.activo {
+            display: block;
+        }
+
+        .paso .foto {
+            display: none;
+        }
+
+        .paso.activo .foto {
+            display: block;
+        }
+
+
+        /* ===================== BODY ===================== */
+        body {
+            background-image: url("lol.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* ===================== CONTENEDOR INICIAL ===================== */
+        .contenedor {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            text-align: center;
+        }
+
+        #valentine {
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        #valentine2{
+             font-family: 'Times New Roman', Times, serif;
+        }
+
+        .zona-botones {
+            position: relative;
+            height: 200px;
+            margin-top: 140px;
+        }
+
+        /* ===================== BOTONES ===================== */
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 12px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #si {
+            background-color: #ff9aa2;
+            margin: 8px;
+        }
+
+        #no {
+            background-color: red;
+            transition: transform 0.15s ease-in-out;
+            position: relative;
+            z-index: 50;
+        }
+
+        .opcion {
+            background-color: #ff9aa2;
+            margin: 8px;
+        }
+
+        .opcion:hover {
+            background-color: #ff6f91;
+        }
+
+        .opcion:active {
+            transform: scale(0.95);
+        }
+
+
+        /* ===================== FOTOS ===================== */
+.foto {
+    position: absolute;
+    max-width: 18vw;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ESQUINAS */
+.top-left {
+    top: 40px;
+    left: 40px;
+}
+
+.top-right {
+    top: 40px;
+    right: 40px;
+}
+
+.bottom-left {
+    bottom: 40px;
+    left: 40px;
+}
+
+.bottom-right {
+    bottom: 40px;
+    right: 40px;
+}
+
+/* CENTROS LATERALES */
+.left-center {
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+}
+
+.right-center {
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+}
+
+/* ARRIBA / ABAJO CENTRO */
+.top-center {
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bottom-center {
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.decoracion-inicial {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* TAMAÑOS OPCIONALES */
+.small { max-width: 10vw; }
+.medium { max-width: 15vw; }
+.large { max-width: 22vw; }
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="decoracion-inicial">
+    <img class="foto top-left medium" src="kitty.png">
+    <img class="foto top-right large" src="foto2.png">
+    <img class="foto bottom-left medium" src="foto3.png">
+    <img class="foto bottom-right medium" src="foto4.png">
+</div>
+
+<div class="contenedor">
+    <h1 id="valentine">Will you be my Valentine?</h1>
+
+    <div class="zona-botones">
+        <button id="si">Yes</button>
+        <button id="no">No</button>
+    </div>
+</div>
+
+
+    <!-- ===================== PASO 1 ===================== -->
+    <div id="paso1" class="paso">
+        <h2>¿Qué te gustaría comer?</h2>
+        <button class="opcion" onclick="seleccionar('comida','Sushi')">Sushi</button>
+        <button class="opcion" onclick="seleccionar('comida','Comida Italiana')">Comida Italiana</button>
+
+       <img class="foto top-left small" src="foto5.png">
+<img class="foto top-right small" src="foto6.png">
+<img class="foto left-center small" src="foto7.png">
+<img class="foto right-center small" src="foto61.png">
+<img class="foto bottom-left small" src="foto62.png">
+<img class="foto bottom-right small" src="foto64.png">
+<img class="foto bottom-center small" src="foto65.png">
+
+    </div>
+
+    <!-- ===================== PASO 2 ===================== -->
+    <div id="paso2" class="paso">
+        <h2>¿Qué te gustaría hacer después?</h2>
+        <button class="opcion" onclick="seleccionar('dsps','Ver películas')">Ver películas</button>
+        <button class="opcion" onclick="seleccionar('dsps','Juegos de mesa')">Juegos de mesa</button>
+        <img class="foto top-left medium" src="foto8.png">
+<img class="foto bottom-right medium" src="foto9.png">
+<img class="foto top-center small" src="foto10.png">
+
+        
+    </div>
+
+
+    <!-- ===================== FINAL ===================== -->
+    <div id="final" class="paso">
+        <h1>Entonces lo que haremos:</h1>
+        <p id="resumen"></p>
+        <h2 id="valentine2">Listo, ya tenemos reservada la mejor date que tendremos. Te amo mucho bonita, espero te guste &lt;3 </h2>
+        <img class="foto top-left medium" src="foto11.png">
+<img class="foto top-right medium" src="foto12.png">
+<img class="foto bottom-left medium" src="foto13.png">
+<img class="foto bottom-right medium" src="foto14.png">
+<img class="foto top-center small" src="foto3.png">
+
+    </div>
+
+<script>
+    let pasoActual = 1;
+
+    const botonNo = document.getElementById("no");
+    const botonSi = document.getElementById("si");
+    const contenedor = document.querySelector(".contenedor");
+    const zona = document.querySelector(".zona-botones");
+
+    const respuestas = {
+        comida:"",
+        dsps:""
+    };
+
+    let posX = 0, posY = 0;
+    const distanciaMin = 120;
+
+    botonNo.addEventListener("mouseover", () => {
+        botonNo.style.position = "absolute";
+
+        const maxX = zona.clientWidth - botonNo.offsetWidth;
+        const maxY = zona.clientHeight - botonNo.offsetHeight;
+
+        let x, y, d;
+        do {
+            x = Math.random() * maxX;
+            y = Math.random() * maxY;
+            d = Math.hypot(x - posX, y - posY);
+        } while (d < distanciaMin);
+
+        posX = x;
+        posY = y;
+
+        botonNo.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    botonSi.addEventListener("click", () => {
+        document.querySelector(".decoracion-inicial").style.display = "none";
+        contenedor.style.display = "none";
+        document.getElementById("paso1").classList.add("activo");
+    });
+
+
+    function seleccionar(tipo, valor) {
+        respuestas[tipo] = valor;
+        avanzar();
+    }
+
+    function avanzar() {
+        document.getElementById(`paso${pasoActual}`).classList.remove("activo");
+        pasoActual++;
+
+        if (pasoActual <= 2) {
+            document.getElementById(`paso${pasoActual}`).classList.add("activo");
+        } else {
+            mostrarResultado();
+        }
+    }
+
+    function mostrarResultado() {
+        document.getElementById("final").classList.add("activo");
+        document.getElementById("resumen").innerHTML = `
+            Comeremos: ${respuestas.comida}<br>
+            Luego: ${respuestas.dsps}<br>
+        `;
+    }
+</script>
+
+</body>
+</html>
